@@ -15,6 +15,7 @@ body {
   box-shadow: 0px 0px 5px 1px #b3b3b3;
   border: 1px solid #ddd2d2;
   padding: 15px;
+  padding-bottom: 30px;
   border-radius: 5px;
   max-width: 700px;
   background: #ffd89d;
@@ -153,8 +154,9 @@ p {
   color: black;
   display: block;
   padding: 10px 50px 10px 50px;
-  font-size: 14px;
-  font-family: "PT Mono", monospace;
+  font-size: 15px;
+  font-family: "Quicksand", monospace;
+  font-weight: 400;
 }
 .grey-underline {
   color: black;
@@ -164,4 +166,11 @@ p {
   transition: all 200ms ease;
   text-decoration: underline;
   cursor: pointer;
+}
+.open-source {
+  color: #2561f8;
+}
+.open-source:hover {
+  color: #7299ff;
+  text-decoration: none;
 }
