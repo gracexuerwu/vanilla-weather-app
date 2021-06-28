@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      src="https://kit.fontawesome.com/0ae8bb4f19.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,200&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Poppins:ital,wght@0,200;0,400;1,200&display=swap" rel="stylesheet">
+</head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <form id="search-form">
+          <div class="form-row">
+            <div class="col-10 btn">
+              <input type="text" class="form-control" id="search-input" placeholder="Enter a city" autofocus="on" autocomplete="off"/>
+            </div>
+            <div class="col-2 btn">
+              <button type="submit" class="btn btn-link" id="button-search">
+                <i class="fas fa-search"></i>
+              </button>
+              <button type="submit" class="btn btn-link" id="button-location">
+                <i class="fas fa-location-arrow"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-6 text-center offset-3">
+            <h1 id="singapore">SINGAPORE</h1>
+          </div>
+            <div class="col-3 text-right">
+            <h5><span class="grey-underline" id="celsius-link">C°</span> / <span class="grey-underline" id="fahrenheit-link">F°</span></h5>
+          </div>
+          <h2>Wednesday | 12:06</h2>
+        </div>
+  
+            
+         
+      
+        
+        <div class="container my-container">
+          <div class="row">
+            <div class="col-6">
+              <div class="row text-center">
+                <div class="col-12">
+                  <img
+                    src="images/004-sun.svg"
+                    class="sun-temperature w-80"
+                    alt=""
+                  />
+                </div>
+                <div class="col-12 temperature" id="temperature">33</div>
+              
+               <div class="col-6 text-right"><img src="images/orange_polygon.svg">
+    <span id="temp-min">35°</span></div>
+    <div class="col-6 text-left"><img src="images/blue_polygon.svg"><span id="temp-max">28°</span></div>
+              </div>
+            </div>
+            <div class="col-6 weather-details">
+              <div class="row">
+                <div class="col-6">Currently</div>
+                <div class="col-6" id="description">Hot asf</div>
+              </div>
+              <div class="row">
+                <div class="col-6">Feels like</div>
+                <div class="col-6" id="feels-like">36°</div>
+              </div>
+              <div class="row">
+                <div class="col-6">Humidity</div>
+                <div class="col-6" id="humidity">73%</div>
+              </div>
+              <div class="row">
+                <div class="col-6">Wind</div>
+                <div class="col-6" id="wind-speed">13 km/hr</div>
+              </div>
+              <div class="row">
+                <div class="col-6">Pressure</div>
+                <div class="col-6" id="pressure">9.7 km</div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row sunrise-row">
+            <div class="col-6 sunrise-left text-left"><img src="images/048-sunrise.svg" class="sunrise-set"> 
+      <span id="sunrise-element">Sunrise | 06:56</span></div>
+      <div class="col-6 sunset-right text-right"><img src="images/049-sunset.svg" class="sunrise-set">
+      <span id="sunset-element">Sunset | 19:07</span></div>
+          </div>
+          <span class="week">Week</span>
+          <hr />
+          <div class="container">
+            <div class="row text-center week-forecast">
+              <div class="col">Mon</div>
+              <div class="col">Tues</div>
+              <div class="col">Wed</div>
+              <div class="col">Thurs</div>
+              <div class="col">Fri</div>
+              <div class="col">Sat</div>
+              <div class="col">Sun</div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row text-center image-forecast">
+              <div class="col"><img src="images/003-clouds and sun.svg" class="images-forecast" alt=""></div>
+              <div class="col"><img src="images/006-thunderstorm.svg" class="images-forecast" alt=""></div>
+              <div class="col"><img src="images/010-rain.svg" class="images-forecast" alt=""></div>
+              <div class="col"><img src="images/007-rain.svg" class="images-forecast" alt=""></div>
+              <div class="col"><img src="images/004-sun.svg" class="images-forecast" alt=""></div>
+              <div class="col"><img src="images/015-wind.svg" class="images-forecast" alt=""></div>
+              <div class="col"><img src="images/009-storm.svg" class="images-forecast" alt=""></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row text-center high-low-temp">
+                <div class="col text-right-temp"><img src="images/orange_polygon.svg">
+                    32°</div>
+                <div class="col text-left-temp"><img src="images/blue_polygon.svg">
+                    27°</div>
+                <div class="col text-right-temp"><img src="images/orange_polygon.svg">
+                    31°</div>
+                <div class="col text-left-temp"><img src="images/blue_polygon.svg">
+                    27°</div>
+                 <div class="col text-right-temp"><img src="images/orange_polygon.svg">
+                     31°</div>
+                <div class="col text-left-temp"><img src="images/blue_polygon.svg">
+                    27°</div>
+                <div class="col text-right-temp"><img src="images/orange_polygon.svg">
+                    31°</div>
+                <div class="col text-left-temp"><img src="images/blue_polygon.svg">
+                    27°</div>
+                 <div class="col text-right-temp"><img src="images/orange_polygon.svg">
+                    33°</div>
+                <div class="col text-left-temp"><img src="images/blue_polygon.svg">
+                    28°</div>
+                <div class="col text-right-temp"><img src="images/orange_polygon.svg">
+                    32°</div>
+                <div class="col text-left-temp"><img src="images/blue_polygon.svg">
+                    27°</div>
+                 <div class="col text-right-temp"><img src="images/orange_polygon.svg">
+                    31°</div>
+                <div class="col text-left-temp"><img src="images/blue_polygon.svg">
+                    28°</div>
+               
+              </div>
+            </div>
+          </div>
+          <div><img src="images/code.svg" class="code-icon"></div>
+          <p>Coded by <a href="https://www.linkedin.com/in/grace-ade-wu/" target="_blank" class="grey-underline">Grace Wu</a></p> 
+        </div>
+        <script src="src/script.js"></script>
+      </body>
+    </html>
+    
+
+
+
+
+    
+

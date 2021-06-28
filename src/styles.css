@@ -1,0 +1,167 @@
+@font-face {
+  font-family: apollo;
+  src: url(fonts/apollo.otf);
+  font-weight: normal;
+}
+
+body {
+  font-family: apollo, "Poppins", sans-serif;
+}
+.wrapper {
+  margin: 20px auto;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px 1px #b3b3b3;
+  border: 1px solid #ddd2d2;
+  padding: 15px;
+  border-radius: 5px;
+  max-width: 700px;
+  background: #ffd89d;
+}
+.btn {
+  color: black;
+  height: 50px;
+}
+.btn:hover {
+  color: #767676;
+}
+.form-control {
+  border-radius: 15px;
+  box-shadow: 0 10px 6px -7px #777;
+  font-family: Poppins;
+  font-size: 14px;
+}
+h1 {
+  font-size: 38px;
+  padding-top: 10px;
+  text-align: center;
+  /*padding-left: 220px;*/
+}
+h5 {
+  padding-top: 10px;
+  padding-right: 20px;
+  /*padding-right: 25px;
+  text-align: right;*/
+}
+/*.celsius-fahren {
+  margin-left: 400px;
+  font-size: 20px; 
+} */
+/*.clearfix {
+  padding-top: 40px;
+}
+.h1 {
+  width: 90%;
+  text-align: center;
+  margin-left: 233px;
+  font-size: 38px;
+  padding-top: 10px;
+}
+.celsisu-fahren {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+h1 {
+  font-size: 38px;
+  padding-top: 10px;
+  text-align: right;
+} 
+/*h5 {
+  padding-top: 10px;
+  padding-right: 25px;
+  text-align: right;
+} */
+
+h2 {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  padding-top: 5px;
+  font-size: 20px;
+  color: #767676;
+}
+.row {
+  padding-top: 30px;
+}
+.sun-temperature {
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.temperature {
+  font-size: 60px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+.weather-details {
+  font-size: 18px;
+}
+.sunrise-row {
+  padding-top: 100px;
+  padding-bottom: 40px;
+  font-size: 16px;
+  max-width: 100%;
+}
+.sunrise-set {
+  width: 10%;
+  margin-right: 15px;
+}
+.week {
+  font-size: 17px;
+}
+hr {
+  height: 2px;
+  background-color: #a78a69;
+  border-radius: 30px;
+  margin-bottom: 0px;
+}
+.week-forecast {
+  margin-top: 0;
+  margin-bottom: 0px;
+  font-size: 17px;
+  padding-top: 20px;
+}
+.images-forecast {
+  width: 55%;
+  margin-bottom: 0px;
+}
+
+.text-left-temp {
+  padding-left: 0px;
+  font-size: 12px;
+  margin-top: 0px;
+}
+.text-right-temp {
+  font-size: 12px;
+  padding-right: 0px;
+}
+.code-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  max-height: 22px;
+  margin-top: 90px;
+}
+p {
+  text-align: center;
+  color: black;
+  display: block;
+  padding: 10px 50px 10px 50px;
+  font-size: 14px;
+  font-family: "PT Mono", monospace;
+}
+.grey-underline {
+  color: black;
+}
+.grey-underline:hover {
+  color: #767676;
+  transition: all 200ms ease;
+  text-decoration: underline;
+  cursor: pointer;
+}
