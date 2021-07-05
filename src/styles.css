@@ -101,6 +101,7 @@ h2 {
 }
 .weather-details {
   font-size: 18px;
+  text-transform: capitalize;
 }
 .sunrise-row {
   padding-top: 100px;
@@ -116,8 +117,8 @@ h2 {
   font-size: 17px;
 }
 hr {
-  height: 2px;
-  background-color: #a78a69;
+  height: 1px;
+  background-color: rgb(128, 128, 128);
   border-radius: 30px;
   margin-bottom: 0px;
 }
@@ -134,11 +135,11 @@ hr {
 
 .text-left-temp {
   padding-left: 0px;
-  font-size: 12px;
+  font-size: 15px;
   margin-top: 0px;
 }
 .text-right-temp {
-  font-size: 12px;
+  font-size: 15px;
   padding-right: 0px;
 }
 .code-icon {
@@ -173,4 +174,8 @@ p {
 .open-source:hover {
   color: #7299ff;
   text-decoration: none;
+}
+.week-temp-icons {
+  padding-top: 0px;
+  text-align: center;
 }

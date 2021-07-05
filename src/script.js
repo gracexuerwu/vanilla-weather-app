@@ -1,10 +1,6 @@
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
-// let h2 = document.querySelector("h2");
-// let currentTime = new Date();
-// h2.innerHTML = formateDate(currentTime);
-
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
