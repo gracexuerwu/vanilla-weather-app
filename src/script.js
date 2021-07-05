@@ -1,3 +1,40 @@
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
+
+let h2 = document.querySelector("h2");
+let currentTime = new Date();
+h2.innerHTML = formateDate(currentTime);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
+
+let locationButton = document.querySelector("#button-location");
+locationButton.addEventListener("click", activateGeoLocation);
+
+let searchCityButton = document.querySelector("#button-search");
+searchCityButton.addEventListener("click", searchButtonSubmit);
+
+searchCity("Singapore");
+
+//Functions
+
+// Change background colour
+function changeBackground(sunrise, sunset) {
+  const dayBackground = "#ffd89d";
+  const nightBackground = "#C0CEFF";
+  const backgroundElement = document.querySelector("#background-element");
+  const currentTime = Date.now() / 1000;
+  if (currentTime > sunrise && currentTime < sunset) {
+    backgroundElement.style.background = dayBackground;
+  } else {
+    backgroundElement.style.background = nightBackground;
+  }
+  return;
+}
+
 // Search city
 function search(event) {
   event.preventDefault();
@@ -9,9 +46,6 @@ function search(event) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = searchInput.value;
 }
-
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
 
 // Date
 function formateDate(date) {
@@ -37,10 +71,6 @@ function formateDate(date) {
   return `Last updated on ${day} | ${hours}:${minutes}`;
 }
 
-let h2 = document.querySelector("h2");
-let currentTime = new Date();
-h2.innerHTML = formateDate(currentTime);
-
 // Convert to fahrenheit
 function convertToFahrenheit(event) {
   event.preventDefault();
@@ -48,9 +78,6 @@ function convertToFahrenheit(event) {
   let temperatureElementFahrenheit = 66;
   temperatureElement.innerHTML = `${temperatureElementFahrenheit}°`;
 }
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 // Convert to celcius
 function convertToCelsius(event) {
@@ -60,20 +87,11 @@ function convertToCelsius(event) {
   temperatureElement.innerHTML = `${temperatureElementCelsius}°`;
 }
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
-
 //Button - geolocation
-
 function activateGeoLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
-
-let locationButton = document.querySelector("#button-location");
-locationButton.addEventListener("click", activateGeoLocation);
-
-// Geolocation api
 
 function showWeather(response) {
   let feelsLike = Math.round(response.data.main.feels_like);
@@ -156,8 +174,11 @@ function showWeather(response) {
 
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = `${description}`;
+
+  changeBackground(sunriseUnix, sunsetUnix);
 }
 
+// Geolocation api
 function retrievePosition(position) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
@@ -254,6 +275,8 @@ function searchCurrentCity(response) {
 
   let windElement = document.querySelector("#wind-speed");
   windElement.innerHTML = `${wind} m/s`;
+
+  changeBackground(sunriseUnix, sunsetUnix);
 }
 
 function searchCity(city) {
@@ -270,6 +293,3 @@ function searchButtonSubmit(event) {
   let city = document.querySelector("#search-input").value;
   searchCity(city);
 }
-
-let searchCityButton = document.querySelector("#button-search");
-searchCityButton.addEventListener("click", searchButtonSubmit);
