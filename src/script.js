@@ -1,9 +1,9 @@
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
-let h2 = document.querySelector("h2");
-let currentTime = new Date();
-h2.innerHTML = formateDate(currentTime);
+// let h2 = document.querySelector("h2");
+// let currentTime = new Date();
+// h2.innerHTML = formateDate(currentTime);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
@@ -20,6 +20,20 @@ searchCityButton.addEventListener("click", searchButtonSubmit);
 searchCity("Singapore");
 
 //Functions
+
+// Local time
+function getLocalTime(unixTimestamp, timeZone) {
+  let date = new Date(unixTimestamp * 1000);
+  let hours = (date.getUTCHours() + timeZone + 24) % 24;
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
 
 // Change background colour
 function changeBackground(sunrise, sunset) {
@@ -203,44 +217,19 @@ function searchCurrentCity(response) {
   let wind = Math.round(response.data.wind.speed);
   let description = response.data.weather[0].description;
   let timezone = response.data.timezone / 3600;
+  let h2 = document.querySelector("h2");
+  let currentLocalTime = getLocalTime(Date.now() / 1000, timezone);
+  h2.innerHTML = `Local time | ${currentLocalTime}`;
 
   //Unix time
   //Sunrise
   console.log(response.data.sys.sunrise);
   console.log(response);
   let sunriseUnix = response.data.sys.sunrise;
-
-  let date = new Date(sunriseUnix * 1000);
-  // let hours = date.getHours();
-  let hours = (date.getUTCHours() + timezone + 24) % 24;
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-
-  let minutes = "0" + date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  let sunriseFormatTime = hours + ":" + minutes.substr(-2);
-  console.log(sunriseFormatTime);
-
+  let sunriseFormatTime = getLocalTime(sunriseUnix, timezone);
   //Sunset
   let sunsetUnix = response.data.sys.sunset;
-  //console.log(response.data.sys.sunset);
-  let sunsetDate = new Date(sunsetUnix * 1000);
-  let sunsetHours = (sunsetDate.getUTCHours() + timezone + 24) % 24;
-  if (sunsetHours < 10) {
-    sunsetHours = `0${sunsetHours}`;
-  }
-
-  let sunsetMinutes = "0" + sunsetDate.getMinutes();
-  if (sunsetMinutes < 10) {
-    sunsetMinutes = `0${sunsetMinutes}`;
-  }
-
-  let sunsetFormatTime = sunsetHours + ":" + sunsetMinutes.substr(-2);
-  console.log(sunsetFormatTime);
+  let sunsetFormatTime = getLocalTime(sunsetUnix, timezone);
 
   // innerHTML
   let descriptionElement = document.querySelector("#description");
