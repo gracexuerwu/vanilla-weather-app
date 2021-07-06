@@ -1,5 +1,6 @@
 let globBooleanCelcius = true;
 let globTemperature = 0;
+let globFeelsLike = 0;
 
 document.querySelector("#search-form").addEventListener("submit", search);
 document.querySelector("#fahrenheit-link").addEventListener("click", convertToFahrenheit);
@@ -207,12 +208,16 @@ function retrievePosition(position) {
 }
 
 function displayTemperature() {
+  let feelsLikeElement = document.querySelector("#feels-like");
   let searchTemperatureElement = document.querySelector("#temperature");
   if (globBooleanCelcius === true) {
+    feelsLikeElement.innerHTML = `${globFeelsLike}°`;
     searchTemperatureElement.innerHTML = `${globTemperature}`;
   } else {
-    let temp = (globTemperature * 9 / 5) + 32;
+    let temp = Math.round((globTemperature * 9 / 5) + 32);
+    let feelsLikeF = Math.round((globFeelsLike * 9 / 5) + 32);
     searchTemperatureElement.innerHTML = `${temp}`;
+    feelsLikeElement.innerHTML = `${feelsLikeF}°`;
   }
 }
 
@@ -220,7 +225,7 @@ function displayTemperature() {
 function searchCurrentCity(response) {
   let location = response.data.name.toUpperCase();
   globTemperature = Math.round(response.data.main.temp);
-  let feelsLike = Math.round(response.data.main.feels_like);
+  globFeelsLike = Math.round(response.data.main.feels_like);
   let humidity = Math.round(response.data.main.humidity);
   let tempMin = Math.round(response.data.main.temp_min);
   let tempMax = Math.round(response.data.main.temp_max);
@@ -262,8 +267,8 @@ function searchCurrentCity(response) {
   let searchHeadingElement = document.querySelector("#singapore");
   searchHeadingElement.innerHTML = `${location}`;
 
-  let searchFeelsLikeElement = document.querySelector("#feels-like");
-  searchFeelsLikeElement.innerHTML = `${feelsLike}°`;
+  /*let searchFeelsLikeElement = document.querySelector("#feels-like");
+  searchFeelsLikeElement.innerHTML = `${globFeelsLike}°`;*/
 
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `${humidity} %`;
