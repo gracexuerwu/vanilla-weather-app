@@ -1,6 +1,8 @@
 let globBooleanCelcius = true;
 let globTemperature = 0;
 let globFeelsLike = 0;
+let globTempMin = 0;
+let globTempMax = 0;
 
 document.querySelector("#search-form").addEventListener("submit", search);
 document.querySelector("#fahrenheit-link").addEventListener("click", convertToFahrenheit);
@@ -208,16 +210,26 @@ function retrievePosition(position) {
 }
 
 function displayTemperature() {
+  let maxTempElement = document.querySelector("#temp-max");
+  let minTempElement = document.querySelector("#temp-min");
   let feelsLikeElement = document.querySelector("#feels-like");
   let searchTemperatureElement = document.querySelector("#temperature");
+
   if (globBooleanCelcius === true) {
+    maxTempElement.innerHTML = `${globTempMax}°`;
+    minTempElement.innerHTML = `${globTempMin}°`;
     feelsLikeElement.innerHTML = `${globFeelsLike}°`;
     searchTemperatureElement.innerHTML = `${globTemperature}`;
+
   } else {
+    let maxTemp = Math.round((globTempMax * 9 / 5) + 32);
+    let minTemp = Math.round((globTempMin * 9 / 5) + 32);
     let temp = Math.round((globTemperature * 9 / 5) + 32);
     let feelsLikeF = Math.round((globFeelsLike * 9 / 5) + 32);
     searchTemperatureElement.innerHTML = `${temp}`;
     feelsLikeElement.innerHTML = `${feelsLikeF}°`;
+    minTempElement.innerHTML = `${minTemp}°`;
+    maxTempElement.innerHTML = `${maxTemp}°`;
   }
 }
 
@@ -227,8 +239,8 @@ function searchCurrentCity(response) {
   globTemperature = Math.round(response.data.main.temp);
   globFeelsLike = Math.round(response.data.main.feels_like);
   let humidity = Math.round(response.data.main.humidity);
-  let tempMin = Math.round(response.data.main.temp_min);
-  let tempMax = Math.round(response.data.main.temp_max);
+  globTempMin = Math.round(response.data.main.temp_min);
+  globTempMax = Math.round(response.data.main.temp_max);
   let pressure = response.data.main.pressure;
   let wind = Math.round(response.data.wind.speed);
   let description = response.data.weather[0].description;
@@ -273,11 +285,11 @@ function searchCurrentCity(response) {
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `${humidity} %`;
 
-  let tempMinElement = document.querySelector("#temp-min");
-  tempMinElement.innerHTML = `${tempMin}°`;
+  //let tempMinElement = document.querySelector("#temp-min");
+  //tempMinElement.innerHTML = `${globTempMin}°`;
 
-  let tempMaxElement = document.querySelector("#temp-max");
-  tempMaxElement.innerHTML = `${tempMax}°`;
+  //let tempMaxElement = document.querySelector("#temp-max");
+  //tempMaxElement.innerHTML = `${globTempMax}°`;
 
   let pressureElement = document.querySelector("#pressure");
   pressureElement.innerHTML = `${pressure} hPA`;
