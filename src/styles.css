@@ -101,6 +101,8 @@ h2 {
 }
 .weather-details {
   font-size: 18px;
+}
+.weather-details:first-letter {
   text-transform: capitalize;
 }
 .sunrise-row {

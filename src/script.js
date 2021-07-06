@@ -111,7 +111,6 @@ function showWeather(response) {
   let tempMin = Math.round(response.data.main.temp_min);
   let tempMax = Math.round(response.data.main.temp_max);
   let description = response.data.weather[0].description;
-
   let temperature = Math.round(response.data.main.temp);
   let location = response.data.name.toUpperCase();
 
@@ -228,6 +227,12 @@ function searchCurrentCity(response) {
   let sunsetFormatTime = getLocalTime(sunsetUnix, timezone);
 
   // innerHTML
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `images/${response.data.weather[0].icon}.svg`
+  );
+
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = `${description}`;
 
@@ -244,7 +249,7 @@ function searchCurrentCity(response) {
   searchTemperatureElement.innerHTML = `${temperature}`;
 
   let searchFeelsLikeElement = document.querySelector("#feels-like");
-  searchFeelsLikeElement.innerHTML = `${feelsLike}°`;
+  searchFeelsLikeElement.innerHTML = `${feelsLike} °`;
 
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `${humidity} %`;
