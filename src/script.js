@@ -1,14 +1,19 @@
-let globBooleanCelcius = true;
-let globTemperature = 0;
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
 
-document.querySelector("#search-form").addEventListener("submit", search);
-document.querySelector("#fahrenheit-link").addEventListener("click", convertToFahrenheit);
-document.querySelector("#celsius-link").addEventListener("click", convertToCelsius);
-document.querySelector("#button-location").addEventListener("click", activateGeoLocation);
-document.querySelector("#button-search").addEventListener("click", searchButtonSubmit);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
+
+let locationButton = document.querySelector("#button-location");
+locationButton.addEventListener("click", activateGeoLocation);
+
+let searchCityButton = document.querySelector("#button-search");
+searchCityButton.addEventListener("click", searchButtonSubmit);
 
 searchCity("Singapore");
-updateCelsiusAndFahrenheitColor();
 
 //Functions
 
@@ -76,31 +81,20 @@ function formateDate(date) {
   return `Last updated on ${day} | ${hours}:${minutes}`;
 }
 
-function updateCelsiusAndFahrenheitColor() {
-  if (globBooleanCelcius === true) {
-    document.querySelector("#celsius-link").style.color = "black";
-    document.querySelector("#fahrenheit-link").style.color = "grey";
-  } else {
-    document.querySelector("#celsius-link").style.color = "grey";
-    document.querySelector("#fahrenheit-link").style.color = "black";
-  }
-  return;
-}
-
 // Convert to fahrenheit
 function convertToFahrenheit(event) {
   event.preventDefault();
-  globBooleanCelcius = false;
-  updateCelsiusAndFahrenheitColor();
-  displayTemperature();
+  let temperatureElement = document.querySelector("#temperature");
+  let temperatureElementFahrenheit = 66;
+  temperatureElement.innerHTML = `${temperatureElementFahrenheit}°`;
 }
 
 // Convert to celcius
 function convertToCelsius(event) {
   event.preventDefault();
-  globBooleanCelcius = true;
-  updateCelsiusAndFahrenheitColor();
-  displayTemperature();
+  let temperatureElement = document.querySelector("#temperature");
+  let temperatureElementCelsius = 33;
+  temperatureElement.innerHTML = `${temperatureElementCelsius}°`;
 }
 
 //Button - geolocation
@@ -206,20 +200,10 @@ function retrievePosition(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
-function displayTemperature() {
-  let searchTemperatureElement = document.querySelector("#temperature");
-  if (globBooleanCelcius === true) {
-    searchTemperatureElement.innerHTML = `${globTemperature}`;
-  } else {
-    let temp = (globTemperature * 9 / 5) + 32;
-    searchTemperatureElement.innerHTML = `${temp}`;
-  }
-}
-
 // Search Weather api
 function searchCurrentCity(response) {
   let location = response.data.name.toUpperCase();
-  globTemperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(response.data.main.temp);
   let feelsLike = Math.round(response.data.main.feels_like);
   let humidity = Math.round(response.data.main.humidity);
   let tempMin = Math.round(response.data.main.temp_min);
@@ -231,7 +215,6 @@ function searchCurrentCity(response) {
   let h2 = document.querySelector("h2");
   let currentLocalTime = getLocalTime(Date.now() / 1000, timezone);
   h2.innerHTML = `Local time | ${currentLocalTime}`;
-  displayTemperature();
 
   //Unix time
   //Sunrise
@@ -262,8 +245,11 @@ function searchCurrentCity(response) {
   let searchHeadingElement = document.querySelector("#singapore");
   searchHeadingElement.innerHTML = `${location}`;
 
+  let searchTemperatureElement = document.querySelector("#temperature");
+  searchTemperatureElement.innerHTML = `${temperature}`;
+
   let searchFeelsLikeElement = document.querySelector("#feels-like");
-  searchFeelsLikeElement.innerHTML = `${feelsLike}°`;
+  searchFeelsLikeElement.innerHTML = `${feelsLike} °`;
 
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `${humidity} %`;
