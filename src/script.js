@@ -4,10 +4,10 @@ let globFeelsLike = 0;
 let globTempMin = 0;
 let globTempMax = 0;
 
-document.querySelector("#search-form").addEventListener("submit", search);
-document.querySelector("#fahrenheit-link").addEventListener("click", convertToFahrenheit);
-document.querySelector("#celsius-link").addEventListener("click", convertToCelsius);
-document.querySelector("#button-location").addEventListener("click", activateGeoLocation);
+document.querySelector("#search-form").addEventListener("submit", eventListenerSearch);
+document.querySelector("#fahrenheit-link").addEventListener("click", eventListenerConvertToFahrenheit);
+document.querySelector("#celsius-link").addEventListener("click", eventListenerConvertToCelsius);
+document.querySelector("#button-location").addEventListener("click", eventListenerActivateGeoLocation);
 document.querySelector("#button-search").addEventListener("click", searchButtonSubmit);
 
 searchCity("Singapore");
@@ -44,7 +44,7 @@ function changeBackground(sunrise, sunset) {
 }
 
 // Search city
-function search(event) {
+function eventListenerSearch(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
   searchInput.value = searchInput.value.toUpperCase();
@@ -91,7 +91,7 @@ function updateCelsiusAndFahrenheitColor() {
 }
 
 // Convert to fahrenheit
-function convertToFahrenheit(event) {
+function eventListenerConvertToFahrenheit(event) {
   event.preventDefault();
   globBooleanCelcius = false;
   updateCelsiusAndFahrenheitColor();
@@ -99,7 +99,7 @@ function convertToFahrenheit(event) {
 }
 
 // Convert to celcius
-function convertToCelsius(event) {
+function eventListenerConvertToCelsius(event) {
   event.preventDefault();
   globBooleanCelcius = true;
   updateCelsiusAndFahrenheitColor();
@@ -107,7 +107,7 @@ function convertToCelsius(event) {
 }
 
 //Button - geolocation
-function activateGeoLocation(event) {
+function eventListenerActivateGeoLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
