@@ -209,8 +209,11 @@ function retrievePosition(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
-function convertCelsiusToFahrenheitFormular() {
+function convertCelsiusToFahrenheitFormular(temperatureInCelsius) {
+  let temperatureInFahrenheit = Math.round((temperatureInCelsius * 9 / 5) + 32);
+  return temperatureInFahrenheit;
 }
+
 
 function displayTemperature() {
   let maxTempElement = document.querySelector("#temp-max");
@@ -225,10 +228,10 @@ function displayTemperature() {
     searchTemperatureElement.innerHTML = `${globTemperature}`;
 
   } else {
-    let maxTemp = Math.round((globTempMax * 9 / 5) + 32);
-    let minTemp = Math.round((globTempMin * 9 / 5) + 32);
-    let temp = Math.round((globTemperature * 9 / 5) + 32);
-    let feelsLikeF = Math.round((globFeelsLike * 9 / 5) + 32);
+    let maxTemp = convertCelsiusToFahrenheitFormular(globTempMax);
+    let minTemp = convertCelsiusToFahrenheitFormular(globTempMin);
+    let temp = convertCelsiusToFahrenheitFormular(globTemperature);
+    let feelsLikeF = convertCelsiusToFahrenheitFormular(globFeelsLike);
     searchTemperatureElement.innerHTML = `${temp}`;
     feelsLikeElement.innerHTML = `${feelsLikeF}°`;
     minTempElement.innerHTML = `${minTemp}°`;
