@@ -117,8 +117,8 @@ function showWeather(response) {
   let humidity = Math.round(response.data.main.humidity);
   let wind = Math.round(response.data.wind.speed);
   let pressure = Math.round(response.data.main.pressure);
-  let tempMin = Math.round(response.data.main.temp_min);
-  let tempMax = Math.round(response.data.main.temp_max);
+  let tempMin = Math.round(response.data.main.temp_max);
+  let tempMax = Math.round(response.data.main.temp_min);
   let description = response.data.weather[0].description;
   let temperature = Math.round(response.data.main.temp);
   let location = response.data.name.toUpperCase();
@@ -209,6 +209,9 @@ function retrievePosition(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
+function convertCelsiusToFahrenheitFormular() {
+}
+
 function displayTemperature() {
   let maxTempElement = document.querySelector("#temp-max");
   let minTempElement = document.querySelector("#temp-min");
@@ -239,8 +242,8 @@ function searchCurrentCity(response) {
   globTemperature = Math.round(response.data.main.temp);
   globFeelsLike = Math.round(response.data.main.feels_like);
   let humidity = Math.round(response.data.main.humidity);
-  globTempMin = Math.round(response.data.main.temp_min);
-  globTempMax = Math.round(response.data.main.temp_max);
+  globTempMin = Math.round(response.data.main.temp_max);
+  globTempMax = Math.round(response.data.main.temp_min);
   let pressure = response.data.main.pressure;
   let wind = Math.round(response.data.wind.speed);
   let description = response.data.weather[0].description;
