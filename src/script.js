@@ -321,3 +321,41 @@ function eventListenerSearchButtonSubmit(event) {
   let city = document.querySelector("#search-input").value;
   searchCity(city);
 }
+
+displayForecast();
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row" id="day-name">`;
+  let days = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML = forecastHTML +
+      `
+    <div class="col-2">
+    <div class="weather-forecast-date">
+    ${day}
+    </div>
+    <div class="icons">
+    <img src="images/02d.svg" alt="" width="40"
+    />
+    </div>
+    <div class="weather-forecast-temperature">
+    <span class="weather-forecast-temperature-max">32°</span>
+    <span class="weather-forecast-temperature-max">27°</span>
+    
+    </div>
+    <div class="row text-center arrows">
+    <div class="col text-right-temp">
+    <img src="images/orange_polygon.svg"></div>
+    <div class="col text-left-temp">
+    <img src="images/blue_polygon.svg"></div>
+    </div>
+    </div>
+    
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
