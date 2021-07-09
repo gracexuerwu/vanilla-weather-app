@@ -106,6 +106,7 @@ h2 {
   text-transform: capitalize;
 }
 .sunrise-row {
+  margin: 0px;
   padding-top: 100px;
   padding-bottom: 40px;
   font-size: 16px;
@@ -193,12 +194,28 @@ p {
 }
 #day-name {
   padding-top: 15px;
+  text-align: center;
 }
 .weather-forecast-temperature {
-  padding-top: 17px;
+  padding-top: 16px;
   text-align: center;
 }
 .arrows {
   padding-top: 1px;
+  text-align: center;
+}
+.weather-forecast-temperature-min {
+  text-align: left;
+}
+.weather-forecast-temperature-min:hover {
+  color: #154cd6;
+}
+.weather-forecast-temperature-max {
+  text-align: right;
+}
+.weather-forecast-temperature-max:hover {
+  color: #cc5200;
+}
+.polygon-icon {
   text-align: center;
 }

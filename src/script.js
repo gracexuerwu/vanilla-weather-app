@@ -342,11 +342,11 @@ function formatDailyForecastDay(timestamp) {
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-
   let forecastHTML = `<div class="row" id="day-name">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
-      forecastHTML = forecastHTML +
+      forecastHTML =
+        forecastHTML +
         `
     <div class="col-2">
     <div class="weather-forecast-date">
@@ -356,23 +356,27 @@ function displayForecast(response) {
     <img src="images/${forecastDay.weather[0].icon}.svg" alt="" width="40"
     />
     </div>
-    <div class="weather-forecast-temperature">
-    <span class="weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}°</span>
-    <span class="weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)}°</span>
-    
+    <div class="row weather-forecast-temperature">
+    <div class="col">
+    <span class="weather-forecast-temperature-max">${Math.round(
+          forecastDay.temp.max
+        )}°
+    </span>
+    <br />
+    <img src="images/orange_polygon.svg" class="polygon-icon">
     </div>
-    <div class="row text-center arrows">
-    <div class="col text-right-temp">
-    <img src="images/orange_polygon.svg"></div>
-    <div class="col text-left-temp">
-    <img src="images/blue_polygon.svg"></div>
+    <div class="col">
+    <span class="weather-forecast-temperature-min">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
+      <br />
+      <img src="images/blue_polygon.svg" class="polygon-icon">
+      </div>
     </div>
     </div>
-    
     `;
     }
   });
-
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
