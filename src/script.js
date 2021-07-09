@@ -8,7 +8,7 @@ document.querySelector("#search-form").addEventListener("submit", eventListenerS
 document.querySelector("#fahrenheit-link").addEventListener("click", eventListenerConvertToFahrenheit);
 document.querySelector("#celsius-link").addEventListener("click", eventListenerConvertToCelsius);
 document.querySelector("#button-location").addEventListener("click", eventListenerActivateGeoLocation);
-document.querySelector("#button-search").addEventListener("click", searchButtonSubmit);
+document.querySelector("#button-search").addEventListener("click", eventListenerSearchButtonSubmit);
 
 searchCity("Singapore");
 updateCelsiusAndFahrenheitColor();
@@ -112,91 +112,92 @@ function eventListenerActivateGeoLocation(event) {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
-function showWeather(response) {
-  let feelsLike = Math.round(response.data.main.feels_like);
-  let humidity = Math.round(response.data.main.humidity);
-  let wind = Math.round(response.data.wind.speed);
-  let pressure = Math.round(response.data.main.pressure);
-  let tempMin = Math.round(response.data.main.temp_max);
-  let tempMax = Math.round(response.data.main.temp_min);
-  let description = response.data.weather[0].description;
-  let temperature = Math.round(response.data.main.temp);
-  let location = response.data.name.toUpperCase();
+// function showWeather(response) {
+//   let feelsLike = Math.round(response.data.main.feels_like);
+//   let humidity = Math.round(response.data.main.humidity);
+//   let wind = Math.round(response.data.wind.speed);
+//   let pressure = Math.round(response.data.main.pressure);
+//   let tempMin = Math.round(response.data.main.temp_max);
+//   let tempMax = Math.round(response.data.main.temp_min);
+//   let description = response.data.weather[0].description;
+//   let temperature = Math.round(response.data.main.temp);
+//   let location = response.data.name.toUpperCase();
 
-  //Unix time
-  //Sunrise
-  console.log(response.data.sys.sunrise);
-  let sunriseUnix = response.data.sys.sunrise;
+//   //Unix time
+//   //Sunrise
+//   console.log(response.data.sys.sunrise);
+//   let sunriseUnix = response.data.sys.sunrise;
 
-  let date = new Date(sunriseUnix * 1000);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
+//   let date = new Date(sunriseUnix * 1000);
+//   let hours = date.getHours();
+//   if (hours < 10) {
+//     hours = `0${hours}`;
+//   }
 
-  let minutes = "0" + date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
+//   let minutes = "0" + date.getMinutes();
+//   if (minutes < 10) {
+//     minutes = `0${minutes}`;
+//   }
 
-  let sunriseFormatTime = hours + ":" + minutes.substr(-2);
-  console.log(sunriseFormatTime);
+//   let sunriseFormatTime = hours + ":" + minutes.substr(-2);
+//   console.log(sunriseFormatTime);
 
-  //Sunset
-  let sunsetUnix = response.data.sys.sunset;
-  //console.log(response.data.sys.sunset);
-  let sunsetDate = new Date(sunsetUnix * 1000);
-  let sunsetHours = sunsetDate.getHours();
-  if (sunsetHours < 10) {
-    sunsetHours = `0${sunsetHours}`;
-  }
+//   //Sunset
+//   let sunsetUnix = response.data.sys.sunset;
+//   //console.log(response.data.sys.sunset);
+//   let sunsetDate = new Date(sunsetUnix * 1000);
+//   let sunsetHours = sunsetDate.getHours();
+//   if (sunsetHours < 10) {
+//     sunsetHours = `0${sunsetHours}`;
+//   }
 
-  let sunsetMinutes = "0" + sunsetDate.getMinutes();
-  if (sunsetMinutes < 10) {
-    sunsetMinutes = `0${sunsetMinutes}`;
-  }
+//   let sunsetMinutes = "0" + sunsetDate.getMinutes();
+//   if (sunsetMinutes < 10) {
+//     sunsetMinutes = `0${sunsetMinutes}`;
+//   }
 
-  let sunsetFormatTime = sunsetHours + ":" + sunsetMinutes.substr(-2);
-  console.log(sunsetFormatTime);
+//   let sunsetFormatTime = sunsetHours + ":" + sunsetMinutes.substr(-2);
+//   console.log(sunsetFormatTime);
 
-  // innerHTML
-  let sunsetElement = document.querySelector("#sunset-element");
-  sunsetElement.innerHTML = `Sunset | ${sunsetFormatTime}`;
+//   // innerHTML
+//   let sunsetElement = document.querySelector("#sunset-element");
+//   sunsetElement.innerHTML = `Sunset | ${sunsetFormatTime}`;
 
-  let sunriseElement = document.querySelector("#sunrise-element");
-  sunriseElement.innerHTML = `Sunrise | ${sunriseFormatTime}`;
+//   let sunriseElement = document.querySelector("#sunrise-element");
+//   sunriseElement.innerHTML = `Sunrise | ${sunriseFormatTime}`;
 
-  let currentTemperatureHeading = document.querySelector("#singapore");
-  currentTemperatureHeading.innerHTML = `${location}`;
+//   let currentTemperatureHeading = document.querySelector("#singapore");
+//   currentTemperatureHeading.innerHTML = `${location}`;
 
-  let currentTemperature = document.querySelector("#temperature");
-  currentTemperature.innerHTML = `${temperature}`;
+//   let currentTemperature = document.querySelector("#temperature");
+//   currentTemperature.innerHTML = `${temperature}`;
 
-  let feelsLikeElement = document.querySelector("#feels-like");
-  feelsLikeElement.innerHTML = `${feelsLike}°`;
+//   let feelsLikeElement = document.querySelector("#feels-like");
+//   feelsLikeElement.innerHTML = `${feelsLike}°`;
 
-  let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = `${humidity} %`;
+//   let humidityElement = document.querySelector("#humidity");
+//   humidityElement.innerHTML = `${humidity} %`;
 
-  let windElement = document.querySelector("#wind-speed");
-  windElement.innerHTML = `${wind} m/s`;
+//   let windElement = document.querySelector("#wind-speed");
+//   windElement.innerHTML = `${wind} m/s`;
 
-  let pressureElement = document.querySelector("#pressure");
-  pressureElement.innerHTML = `${pressure} m`;
+//   let pressureElement = document.querySelector("#pressure");
+//   pressureElement.innerHTML = `${pressure} m`;
 
-  let tempMinElement = document.querySelector("#temp-min");
-  tempMinElement.innerHTML = `${tempMin}°`;
+//   let tempMinElement = document.querySelector("#temp-min");
+//   tempMinElement.innerHTML = `${tempMin}°`;
 
-  let tempMaxElement = document.querySelector("#temp-max");
-  tempMaxElement.innerHTML = `${tempMax}°`;
+//   let tempMaxElement = document.querySelector("#temp-max");
+//   tempMaxElement.innerHTML = `${tempMax}°`;
 
-  let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = `${description}`;
+//   let descriptionElement = document.querySelector("#description");
+//   descriptionElement.innerHTML = `${description}`;
 
-  changeBackground(sunriseUnix, sunsetUnix);
-}
+//   changeBackground(sunriseUnix, sunsetUnix);
+// }
 
 // Geolocation api
+
 function retrievePosition(position) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
@@ -206,7 +207,7 @@ function retrievePosition(position) {
   let apiUrl = `${apiEndpoint}lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
   console.log(apiUrl);
 
-  axios.get(apiUrl).then(showWeather);
+  axios.get(apiUrl).then(displayWeatherForecastFromApiResponse);
 }
 
 function convertCelsiusToFahrenheitFormular(temperatureInCelsius) {
@@ -240,7 +241,7 @@ function displayTemperature() {
 }
 
 // Search Weather api
-function searchCurrentCity(response) {
+function displayWeatherForecastFromApiResponse(response) {
   let location = response.data.name.toUpperCase();
   globTemperature = Math.round(response.data.main.temp);
   globFeelsLike = Math.round(response.data.main.feels_like);
@@ -312,10 +313,10 @@ function searchCity(city) {
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
   let apiUrl = `${apiEndpoint}q=${city}&appid=${apiKey}&units=${units}`;
 
-  axios.get(apiUrl).then(searchCurrentCity);
+  axios.get(apiUrl).then(displayWeatherForecastFromApiResponse);
 }
 
-function searchButtonSubmit(event) {
+function eventListenerSearchButtonSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input").value;
   searchCity(city);
