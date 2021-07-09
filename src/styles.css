@@ -182,10 +182,23 @@ p {
   text-align: center;
 }
 
-/* .weather-forecast {
+.weather-forecast-date {
   text-align: center;
+  margin-top: 10px;
+  font-size: 17px;
 }
 .icons {
-  margin-top: 10px;
-  margin-bottom: 15px;
-} */
+  margin-top: 15px;
+  text-align: center;
+}
+#day-name {
+  padding-top: 15px;
+}
+.weather-forecast-temperature {
+  padding-top: 17px;
+  text-align: center;
+}
+.arrows {
+  padding-top: 1px;
+  text-align: center;
+}
