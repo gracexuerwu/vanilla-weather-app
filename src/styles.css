@@ -219,3 +219,10 @@ p {
 .polygon-icon {
   text-align: center;
 }
+.forecast {
+  display: block;
+  border-radius: 10px;
+  box-shadow: 1px 3px 7px rgba(161, 161, 161, 0.637);
+  margin: 1px 3px;
+  max-width: 105px;
+}
