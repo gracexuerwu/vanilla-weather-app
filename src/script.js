@@ -33,7 +33,7 @@ function getLocalTime(unixTimestamp, timeZone) {
 
 // Change background colour
 function changeBackground(sunrise, sunset) {
-  const dayBackground = "#ffd89d";
+  const dayBackground = "#FFD89D";
   const nightBackground = "#C0CEFF";
   const backgroundElement = document.querySelector("#background-element");
   const currentTime = Date.now() / 1000;
@@ -231,10 +231,10 @@ function displayTemperature() {
     searchTemperatureElement.innerHTML = `${globTemperature}`;
 
     globArrayTempMax.forEach((temperature, index)=>{
-      document.querySelector(`#weather-forecast-temperature-max-${index}`).innerHTML = temperature 
+      document.querySelector(`#weather-forecast-temperature-max-${index}`).innerHTML = `${temperature}°` 
     });
     globArrayTempMin.forEach((temperature, index)=>{
-      document.querySelector(`#weather-forecast-temperature-min-${index}`).innerHTML = temperature 
+      document.querySelector(`#weather-forecast-temperature-min-${index}`).innerHTML = `${temperature}°` 
     });
 
   } else {
@@ -248,10 +248,10 @@ function displayTemperature() {
     maxTempElement.innerHTML = `${maxTemp}°`;
 
     globArrayTempMax.forEach((temperature, index)=>{
-      document.querySelector(`#weather-forecast-temperature-max-${index}`).innerHTML = convertCelsiusToFahrenheitFormular(temperature);
+      document.querySelector(`#weather-forecast-temperature-max-${index}`).innerHTML = `${convertCelsiusToFahrenheitFormular(temperature)}°`;
     });
     globArrayTempMin.forEach((temperature, index)=>{
-      document.querySelector(`#weather-forecast-temperature-min-${index}`).innerHTML = convertCelsiusToFahrenheitFormular(temperature);
+      document.querySelector(`#weather-forecast-temperature-min-${index}`).innerHTML = `${convertCelsiusToFahrenheitFormular(temperature)}°`;
     });
   }
 }
