@@ -3,6 +3,8 @@ let globTemperature = 0;
 let globFeelsLike = 0;
 let globTempMin = 0;
 let globTempMax = 0;
+let globArrayTempMax = [];
+let globArrayTempMin = [];
 
 document.querySelector("#search-form").addEventListener("submit", eventListenerSearch);
 document.querySelector("#fahrenheit-link").addEventListener("click", eventListenerConvertToFahrenheit);
@@ -228,6 +230,13 @@ function displayTemperature() {
     feelsLikeElement.innerHTML = `${globFeelsLike}°`;
     searchTemperatureElement.innerHTML = `${globTemperature}`;
 
+    globArrayTempMax.forEach((temperature, index)=>{
+      document.querySelector(`#weather-forecast-temperature-max-${index}`).innerHTML = temperature 
+    });
+    globArrayTempMin.forEach((temperature, index)=>{
+      document.querySelector(`#weather-forecast-temperature-min-${index}`).innerHTML = temperature 
+    });
+
   } else {
     let maxTemp = convertCelsiusToFahrenheitFormular(globTempMax);
     let minTemp = convertCelsiusToFahrenheitFormular(globTempMin);
@@ -237,6 +246,13 @@ function displayTemperature() {
     feelsLikeElement.innerHTML = `${feelsLikeF}°`;
     minTempElement.innerHTML = `${minTemp}°`;
     maxTempElement.innerHTML = `${maxTemp}°`;
+
+    globArrayTempMax.forEach((temperature, index)=>{
+      document.querySelector(`#weather-forecast-temperature-max-${index}`).innerHTML = convertCelsiusToFahrenheitFormular(temperature);
+    });
+    globArrayTempMin.forEach((temperature, index)=>{
+      document.querySelector(`#weather-forecast-temperature-min-${index}`).innerHTML = convertCelsiusToFahrenheitFormular(temperature);
+    });
   }
 }
 
@@ -345,6 +361,8 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row" id="day-name">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
+      globArrayTempMax[index] = Math.round(forecastDay.temp.max);
+      globArrayTempMin[index] = Math.round(forecastDay.temp.min);
       forecastHTML =
         forecastHTML +
         `
@@ -358,17 +376,12 @@ function displayForecast(response) {
     </div>
     <div class="row weather-forecast-temperature">
     <div class="col">
-    <span class="weather-forecast-temperature-max">${Math.round(
-          forecastDay.temp.max
-        )}°
-    </span>
+    <span class="weather-forecast-temperature-max" id="weather-forecast-temperature-max-${index}"></span>
     <br />
     <img src="images/orange_polygon.svg" class="polygon-icon">
     </div>
     <div class="col">
-    <span class="weather-forecast-temperature-min">${Math.round(
-          forecastDay.temp.min
-        )}°</span>
+    <span class="weather-forecast-temperature-min" id="weather-forecast-temperature-min-${index}"></span>
       <br />
       <img src="images/blue_polygon.svg" class="polygon-icon">
       </div>
@@ -379,4 +392,5 @@ function displayForecast(response) {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+  displayTemperature();
 }
