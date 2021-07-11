@@ -207,15 +207,15 @@ p {
 .weather-forecast-temperature-min {
   text-align: left;
 }
-.weather-forecast-temperature-min:hover {
+/* .weather-forecast-temperature-min:hover {
   color: #154cd6;
-}
+} */
 .weather-forecast-temperature-max {
   text-align: right;
 }
-.weather-forecast-temperature-max:hover {
+/* .weather-forecast-temperature-max:hover {
   color: #cc5200;
-}
+} */
 .polygon-icon {
   text-align: center;
 }
@@ -225,4 +225,8 @@ p {
   box-shadow: 1px 3px 7px rgba(161, 161, 161, 0.637);
   margin: 1px 3px;
   max-width: 105px;
+}
+.forecast:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  cursor: pointer;
 }
