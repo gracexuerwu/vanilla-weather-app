@@ -264,6 +264,11 @@ function getDailyForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+  console.log(capitalizeFirstLetter("grace"));
+
 // Search Weather api
 function displayWeatherForecastFromApiResponse(response) {
   let location = response.data.name.toUpperCase();
@@ -299,7 +304,7 @@ function displayWeatherForecastFromApiResponse(response) {
   );
 
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = `${description}`;
+  descriptionElement.innerHTML = capitalizeFirstLetter(`${description}`);
 
   let sunsetElement = document.querySelector("#sunset-element");
   sunsetElement.innerHTML = `Sunset | ${sunsetFormatTime}`;
