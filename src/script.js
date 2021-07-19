@@ -267,7 +267,7 @@ function getDailyForecast(coordinates) {
 function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
-  console.log(capitalizeFirstLetter("grace"));
+//console.log(capitalizeFirstLetter("grace"));
 
 // Search Weather api
 function displayWeatherForecastFromApiResponse(response) {
@@ -379,7 +379,7 @@ function displayForecast(response) {
     <img src="images/${forecastDay.weather[0].icon}.svg" alt="" width="40"
     />
     </div>
-    <div class="row weather-forecast-temperature">
+    <div class="row weather-forecast-temperature no-gutters">
     <div class="col">
     <span class="weather-forecast-temperature-max" id="weather-forecast-temperature-max-${index}"></span>
     <br />
