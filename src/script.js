@@ -230,11 +230,11 @@ function displayTemperature() {
     feelsLikeElement.innerHTML = `${globFeelsLike}°`;
     searchTemperatureElement.innerHTML = `${globTemperature}`;
 
-    globArrayTempMax.forEach((temperature, index)=>{
-      document.querySelector(`#weather-forecast-temperature-max-${index}`).innerHTML = `${temperature}°` 
+    globArrayTempMax.forEach((temperature, index) => {
+      document.querySelector(`#weather-forecast-temperature-max-${index}`).innerHTML = `${temperature}°`
     });
-    globArrayTempMin.forEach((temperature, index)=>{
-      document.querySelector(`#weather-forecast-temperature-min-${index}`).innerHTML = `${temperature}°` 
+    globArrayTempMin.forEach((temperature, index) => {
+      document.querySelector(`#weather-forecast-temperature-min-${index}`).innerHTML = `${temperature}°`
     });
 
   } else {
@@ -247,10 +247,10 @@ function displayTemperature() {
     minTempElement.innerHTML = `${minTemp}°`;
     maxTempElement.innerHTML = `${maxTemp}°`;
 
-    globArrayTempMax.forEach((temperature, index)=>{
+    globArrayTempMax.forEach((temperature, index) => {
       document.querySelector(`#weather-forecast-temperature-max-${index}`).innerHTML = `${convertCelsiusToFahrenheitFormular(temperature)}°`;
     });
-    globArrayTempMin.forEach((temperature, index)=>{
+    globArrayTempMin.forEach((temperature, index) => {
       document.querySelector(`#weather-forecast-temperature-min-${index}`).innerHTML = `${convertCelsiusToFahrenheitFormular(temperature)}°`;
     });
   }

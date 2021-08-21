@@ -42,38 +42,7 @@ h1 {
 h5 {
   padding-top: 10px;
   padding-right: 20px;
-  /*padding-right: 25px;
-  text-align: right;*/
 }
-/*.celsius-fahren {
-  margin-left: 400px;
-  font-size: 20px; 
-} */
-/*.clearfix {
-  padding-top: 40px;
-}
-.h1 {
-  width: 90%;
-  text-align: center;
-  margin-left: 233px;
-  font-size: 38px;
-  padding-top: 10px;
-}
-.celsisu-fahren {
-  font-size: 20px;
-  margin-right: 20px;
-}
-
-h1 {
-  font-size: 38px;
-  padding-top: 10px;
-  text-align: right;
-} 
-/*h5 {
-  padding-top: 10px;
-  padding-right: 25px;
-  text-align: right;
-} */
 
 h2 {
   text-align: center;
@@ -207,15 +176,11 @@ p {
 .weather-forecast-temperature-min {
   text-align: left;
 }
-/* .weather-forecast-temperature-min:hover {
-  color: #154cd6;
-} */
+
 .weather-forecast-temperature-max {
   text-align: right;
 }
-/* .weather-forecast-temperature-max:hover {
-  color: #cc5200;
-} */
+
 .polygon-icon {
   text-align: center;
 }
