@@ -1,4 +1,4 @@
-# vanilla-weather-app 
+# Weather app coded with vanilla Javascript 
 This app has some highlighted functions below:
 
 - Displays current weather and local time of desired location
