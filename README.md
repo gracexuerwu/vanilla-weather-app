@@ -1,11 +1,13 @@
-# Weather app - Coded with vanilla Javascript 
+# 🌦 Weather app - Coded with vanilla Javascript 
 > This is my very first vanilla javascript project.
-> Live demo [_here_](https://dazzling-meitner-238069.netlify.app/ ). <!-- If you have the project hosted somewhere, include the link here. -->
+> Live demo [_here_](https://dazzling-meitner-238069.netlify.app/ ). 🧚‍♀️ <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
+* [Wireframe Design](#wireframe-design)
+* [Room for Improvement](#room-for-improvement)
 * [Project Status](#project-status)
 <!-- * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
@@ -42,9 +44,8 @@ This app has some highlighted functions below:
 - Changes background according to sunset/sunrise time of the desired location / the user's current location
 
 
-<!-- ## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. --> 
+## Wireframe Design
+![Wireframe Design](https://user-images.githubusercontent.com/86596983/130597547-5d02270a-5e73-44f5-bb76-ad8de80fb2d4.png)
 
 
 <!-- ## Setup
@@ -59,21 +60,20 @@ Provide various use cases and code examples here.
 
 `write-your-code-here`
  -->
+ ## Room for Improvement
+
+Room for improvement:
+- Implementation of the Sunrise Sunset slider 
+- Responsiveness to fit different screen sizes
+
+To do:
+- Daily forecast 
+- Or Hourly forecast line chart plot 
+
+
 ## Project Status
 Project is: _complete_
 
-
-<!-- ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
-
-To do:
-- Feature to be added 1
-- Feature to be added 2
- -->
 
 <!-- ## Acknowledgements
 Give credit here.
