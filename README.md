@@ -1,6 +1,5 @@
 # 🐯 Chinese Zodiac animal generator
-> This is my very first vanilla javascript project.
-> Live demo [_here_] https://birthday-lunar-calendar.netlify.app/. 🧚‍♀️ <!-- If you have the project hosted somewhere, include the link here. -->
+> Live demo [https://birthday-lunar-calendar.netlify.app/] . 🧚‍♀️ <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 * [General Info](#general-information)
