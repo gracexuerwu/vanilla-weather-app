@@ -1,4 +1,4 @@
-# 🌦 Weather app - Coded with vanilla Javascript 
+# 🐯 Chinese Zodiac animal generator
 > This is my very first vanilla javascript project.
 > Live demo [_here_] https://birthday-lunar-calendar.netlify.app/. 🧚‍♀️ <!-- If you have the project hosted somewhere, include the link here. -->
 
@@ -39,7 +39,6 @@ This app has some highlighted functions below:
 - Generates zodiac animal and chinese characters based on the keyed in birthday
 
 ## Wireframe Design
-![Wireframe Design]
 ![LunarCal_design](https://user-images.githubusercontent.com/86596983/162053123-98d1be08-0b42-4ae9-a1f8-755846b6d5f6.png)
 
 <!-- ## Setup
