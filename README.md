@@ -1,6 +1,6 @@
 # 🌦 Weather app - Coded with vanilla Javascript 
 > This is my very first vanilla javascript project.
-> Live demo [_here_](https://dazzling-meitner-238069.netlify.app/ ). 🧚‍♀️ <!-- If you have the project hosted somewhere, include the link here. -->
+> Live demo [_here_] https://birthday-lunar-calendar.netlify.app/. 🧚‍♀️ <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -19,8 +19,7 @@
 
 
 ## General Information
-- The aim of this project was to get started with learning to design the a simple wireframe, the basics of bootstrap, how to use document query selectors, making api calls followed by displaying data.
-- Provides live weather data from an API (https://openweathermap.org/api)
+- The aim of this project was to create a app that generates the user's zodiac animal based on their birthday.
 <!-- - Provide general information about your project here.
 - What problem does it (intend to) solve?
 - What is the purpose of your project?
@@ -31,22 +30,17 @@
 ## Technologies Used
 - Javascript
 - Bootstrap - version 4.3.1
+- React.js
 
 
 ## Features
 This app has some highlighted functions below:
 
-- Displays current weather and local time of desired location
-- Display weather of current location
-- Unit (Celcius/Farenheit) conversion
-- Daily forecast
-- Displays sunrise and sunset time of location
-- Changes background according to sunset/sunrise time of the desired location / the user's current location
-
+- Generates zodiac animal and chinese characters based on the keyed in birthday
 
 ## Wireframe Design
-![Wireframe Design](https://user-images.githubusercontent.com/86596983/130597547-5d02270a-5e73-44f5-bb76-ad8de80fb2d4.png)
-
+![Wireframe Design]
+![LunarCal_design](https://user-images.githubusercontent.com/86596983/162053123-98d1be08-0b42-4ae9-a1f8-755846b6d5f6.png)
 
 <!-- ## Setup
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
@@ -63,13 +57,7 @@ Provide various use cases and code examples here.
  ## Room for Improvement
 
 Room for improvement:
-- Implementation of the Sunrise Sunset slider 
 - Responsiveness to fit different screen sizes
-
-To do:
-- Daily forecast 
-- Or Hourly forecast line chart plot 
-
 
 ## Project Status
 Project is: _complete_
